@@ -1,0 +1,201 @@
+@import url('https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 7%;
+    --foreground: 0 0% 100%;
+
+    --card: 0 0% 12%;
+    --card-foreground: 0 0% 100%;
+
+    --popover: 0 0% 12%;
+    --popover-foreground: 0 0% 100%;
+
+    --primary: 291 66% 38%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 267 47% 42%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 0 0% 18%;
+    --muted-foreground: 0 0% 73%;
+
+    --accent: 291 66% 38%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 347 87% 64%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 0 0% 20%;
+    --input: 0 0% 20%;
+    --ring: 291 66% 38%;
+
+    --chart-1: 291 66% 38%;
+    --chart-2: 267 47% 42%;
+    --chart-3: 217 91% 60%;
+    --chart-4: 150 50% 50%;
+    --chart-5: 30 100% 50%;
+
+    --radius: 0.3rem;
+  }
+
+  .light {
+    --background: 0 0% 98%;
+    --foreground: 0 0% 3.9%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 3.9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 3.9%;
+
+    --primary: 291 66% 38%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 267 47% 42%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 0 0% 93%;
+    --muted-foreground: 0 0% 45%;
+
+    --accent: 291 66% 38%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 347 87% 64%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 0 0% 89.8%;
+    --input: 0 0% 89.8%;
+    --ring: 291 66% 38%;
+
+    --chart-1: 291 66% 38%;
+    --chart-2: 267 47% 42%;
+    --chart-3: 217 91% 60%;
+    --chart-4: 150 50% 50%;
+    --chart-5: 30 100% 50%;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground min-h-screen overflow-x-hidden;
+    font-family: 'Google Sans', sans-serif;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  /* Responsive text sizing */
+  html {
+    font-size: 14px;
+    @screen sm {
+      font-size: 15px;
+    }
+    @screen md {
+      font-size: 16px;
+    }
+  }
+
+  .material-shadow {
+    box-shadow: 0 2px 4px -1px rgba(0,0,0,.2), 0 4px 5px 0 rgba(0,0,0,.14), 0 1px 10px 0 rgba(0,0,0,.12);
+  }
+
+  .tree-view {
+    margin-left: 16px;
+  }
+
+  .tree-view-item {
+    margin-bottom: 4px;
+  }
+
+  .tree-toggle:before {
+    content: "▶";
+    display: inline-block;
+    margin-right: 6px;
+    font-size: 10px;
+    transition: transform 0.2s;
+  }
+
+  .tree-toggle.expanded:before {
+    transform: rotate(90deg);
+  }
+
+  .transition-height {
+    transition: max-height 0.3s ease-in-out;
+    overflow: hidden;
+  }
+
+  /* Logo styles */
+.webgen-logo-container {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.25rem;
+  border-radius: 0.5rem;
+}
+
+.molecular-logo {
+  fill: none;
+}
+
+.logo-dot {
+  fill: hsl(var(--primary));
+}
+
+.logo-line {
+  stroke: hsl(var(--primary));
+  stroke-width: 2;
+}
+
+/* Progress indicator responsive styles */
+  .steps-wrapper {
+    position: relative;
+    padding: 0 2rem;
+  }
+  
+  .steps-container {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    scroll-behavior: smooth;
+  }
+  
+  .steps-container::-webkit-scrollbar {
+    display: none;
+  }
+
+  @media (min-width: 768px) {
+    .steps-wrapper {
+      padding: 0;
+    }
+  }
+  
+  @media (max-width: 640px) {
+    .progress-indicator {
+      padding: 0 1rem;
+    }
+    .progress-step {
+      font-size: 0.875rem;
+    }
+    .progress-number {
+      width: 1.75rem;
+      height: 1.75rem;
+      font-size: 0.875rem;
+    }
+  }
+
+  /* Tabs scrolling on small devices */
+  @media (max-width: 768px) {
+    .tabs-list-container {
+      overflow-x: auto;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+    }
+    .tabs-list-container::-webkit-scrollbar {
+      display: none;
+    }
+  }
+}
