@@ -66,7 +66,11 @@ export class MemStorage implements IStorage {
 
   async createTemplate(template: InsertTemplate): Promise<Template> {
     const id = this.templateId++;
-    const newTemplate: Template = { ...template, id };
+    const newTemplate: Template = {
+      ...template,
+      id,
+      description: template.description ?? null,
+    };
     this.templates.set(id, newTemplate);
     return newTemplate;
   }
@@ -80,9 +84,15 @@ export class MemStorage implements IStorage {
     return Array.from(this.generatedProjects.values());
   }
 
-  async createGeneratedProject(project: InsertGeneratedProject): Promise<GeneratedProject> {
+  async createGeneratedProject(
+    project: InsertGeneratedProject,
+  ): Promise<GeneratedProject> {
     const id = this.projectId++;
-    const newProject: GeneratedProject = { ...project, id };
+    const newProject: GeneratedProject = {
+      ...project,
+      id,
+      downloadCount: project.downloadCount ?? 0,
+    };
     this.generatedProjects.set(id, newProject);
     return newProject;
   }
@@ -90,7 +100,7 @@ export class MemStorage implements IStorage {
   async incrementDownloadCount(id: number): Promise<void> {
     const project = this.generatedProjects.get(id);
     if (project) {
-      project.downloadCount += 1;
+      project.downloadCount = (project.downloadCount ?? 0) + 1;
       this.generatedProjects.set(id, project);
     }
   }
